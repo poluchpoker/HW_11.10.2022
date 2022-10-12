@@ -26,26 +26,25 @@ public class Number3 {
     }
 
     public static String shift(ArrayList<Integer> mas, int n){
-        StringBuilder res1 = new StringBuilder();
-        StringBuilder res2 = new StringBuilder();
+        String res1 = "";
+        String res2 = "";
         int cnt = 0;
         if(n >= 0) {
             while (cnt != n) {
-                res1.append(mas.get(cnt));
+                res1 += Integer.toString(mas.get(cnt));
                 cnt += 1;
             }
         }else{
             while (cnt != abs(n)) {
-                res1.append(mas.get(cnt));
+                res1 += Integer.toString(mas.get(cnt));
                 cnt += 1;
             }
         }
         while (cnt != mas.size()) {
-            res2.append(mas.get(cnt));
+            res2 += Integer.toString(mas.get(cnt));
             cnt += 1;
         }
-        
-        String res3 = res2 + res1.toString();
+        String res3 = res2 + res1;
 
         mas.clear();
 
