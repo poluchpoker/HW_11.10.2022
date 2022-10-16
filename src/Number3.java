@@ -6,7 +6,9 @@ import static java.lang.Math.abs;
 public class Number3 {
     static Scanner inp = new Scanner(System.in);
     public static void main(String[] args) {
+        //Вводится сдвиг...
         int n = inp.nextInt();
+        //Вводится размер массива...
         int length = inp.nextInt();
         ArrayList<Integer> mas = new ArrayList<>();
 
@@ -14,23 +16,15 @@ public class Number3 {
             mas.add(inp.nextInt());
         }
 
-        String a = shift(mas, n);
-
-        for (int j = 0; j < a.length(); j++){
-            char k = a.charAt(j);
-            int k1 = (int)k - 48;
-            mas.add(k1);
-        }
-
-        System.out.println(mas);
+        System.out.println(shift(mas, n));
     }
 
-    public static String shift(ArrayList<Integer> mas, int n){
+    public static ArrayList<Integer> shift(ArrayList<Integer> mas, int n){
         String res1 = "";
         String res2 = "";
         int cnt = 0;
         if(n >= 0) {
-            while (cnt != n) {
+            while (cnt != mas.toArray().length - n) {
                 res1 += Integer.toString(mas.get(cnt));
                 cnt += 1;
             }
@@ -44,10 +38,17 @@ public class Number3 {
             res2 += Integer.toString(mas.get(cnt));
             cnt += 1;
         }
+
         String res3 = res2 + res1;
 
         mas.clear();
 
-        return res3;
+        for (int j = 0; j < res3.length(); j++){
+            char k = res3.charAt(j);
+            int k1 =(int)k - 48;
+            mas.add(k1);
+        }
+
+        return mas;
     }
 }
